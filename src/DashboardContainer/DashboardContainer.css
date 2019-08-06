@@ -1,0 +1,29 @@
+/* Dashboard Container Styles */
+
+.dashboard-container .dashboard-item {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px #ECECEC;
+    float: left;
+    margin-bottom: 20px;
+    padding: 5px 0;
+}
+
+.dashboard-item .dashboard-item-header {
+    border-bottom: 1px #ECECEC solid;
+    margin-bottom: 15px;
+    padding: 10px 10px 15px;
+}
+
+.dashboard-item .dashboard-title {
+    color: #333;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0;
+}
+
+.dashboard-item .large-text {
+    font-size: 60px;
+    text-align: center;
+    font-weight: 500;
+}

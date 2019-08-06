@@ -1,0 +1,23 @@
+/* Dashboard Styles */
+
+.dashboard-wrapper {
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+.dashboard-wrapper .dashboard-header {
+    background: white;
+    box-shadow: 2px 2px 1px #ECECEC;
+    margin-bottom: 20px;
+    padding: 5px 0;
+    width: 100%;
+}
+
+.dashboard-wrapper .main-name {
+    font-size: 20px;
+    width: 60%;
+}
+.dashboard-wrapper .repo-name {
+    font-size: 16px;
+    width: 60%;
+}

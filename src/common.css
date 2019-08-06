@@ -1,0 +1,29 @@
+
+/****************/
+/* Common style */
+/****************/
+
+body {
+    background-color: #F1F2F5;
+}
+
+.form-input {
+    border: 0;
+    padding: 5px;
+}
+.form-input:focus { outline: 0 !important; }
+
+.full-width {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.half-width {
+    width: calc(50% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.row-container {
+    margin-left: 10px;
+    margin-right: 10px;
+}
