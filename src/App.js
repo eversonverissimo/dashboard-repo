@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import '././common.css';
-import Dashboard from './Dashboard';
+import DashboardApp from './DashboardApp';
 
 function App() {
 
-  return <Dashboard></Dashboard>;
+  return <DashboardApp></DashboardApp>;
 }
 
 export default App;

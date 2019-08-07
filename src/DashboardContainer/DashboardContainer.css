@@ -6,6 +6,7 @@
     box-shadow: 2px 2px 1px #ECECEC;
     float: left;
     margin-bottom: 20px;
+    min-height: 300px;
     padding: 5px 0;
 }
 
@@ -26,4 +27,13 @@
     font-size: 60px;
     text-align: center;
     font-weight: 500;
+}
+
+.dashboard-container .loading {
+    text-align: center;
+    padding: 40px;
+}
+.dashboard-container .loading img {
+    height: 50px;
+    width: 50px;
 }
