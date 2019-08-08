@@ -1,10 +1,7 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import { Query } from 'react-apollo';
-import { AVG_PR_MERGED_OPENED_BY_DAY } from '../graphql/queries';
-import { Loading, Error } from '../common';
 
-const MonthSummary = ({ mainName, repoName }) => {
+const MonthSummary = ({ values }) => {
 
     const series = [
         {
@@ -69,29 +66,16 @@ const MonthSummary = ({ mainName, repoName }) => {
                 <h4 className="dashboard-title">Month Summary</h4>
             </div>
             <div className="dashboard-item-body">
-                <Query query={AVG_PR_MERGED_OPENED_BY_DAY} variables={{name: mainName, repo: repoName}}>
-                    {({ loading, error, data }) => {
-                        if (loading){
-                            return <Loading />;
-                        }
-                        if (error){
-                            return <Error />;
-                        }
-
-                        return (
-                            <LineChart width={900} height={300} style={{margin: '0 auto'}}>
-                                <CartesianGrid />
-                                <XAxis dataKey="category" type="category" allowDuplicatedCategory={false} />
-                                <YAxis dataKey="value" />
-                                <Tooltip />
-                                <Legend />
-                                {series.map(s => (
-                                <Line dataKey="value" data={s.data} name={s.name} stroke={s.stroke} key={s.name} />
-                                ))}
-                            </LineChart>
-                        );
-                    }}
-                </Query>
+                <LineChart width={900} height={300} style={{margin: '0 auto'}}>
+                    <CartesianGrid />
+                    <XAxis dataKey="category" type="category" allowDuplicatedCategory={false} />
+                    <YAxis dataKey="value" />
+                    <Tooltip />
+                    <Legend />
+                    {series.map(s => (
+                        <Line dataKey="value" data={s.data} name={s.name} stroke={s.stroke} key={s.name} />
+                    ))}
+                </LineChart>
             </div>
         </div>
     );
