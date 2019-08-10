@@ -37,3 +37,39 @@
     height: 50px;
     width: 50px;
 }
+
+.dashboard-container .tooltip-info {
+    background: white;
+    box-shadow: 0px 0px 3px #999;
+    color: #333;
+    font-size: 15px;
+}
+
+.dashboard-container .tooltip-info .tooltip-header {
+    padding: 10px 20px;
+    border-bottom: 1px solid #CCC;
+}
+.dashboard-container .tooltip-info .tooltip-body {
+    padding: 10px 20px;
+}
+
+.dashboard-container .btn-view-mode {
+    background: white;
+    border-top: 3px solid white;
+    color: #AAA;
+    border: 0;
+    padding: 20px 30px;
+}
+.dashboard-container .btn-view-mode:focus { outline: none }
+.dashboard-container .btn-view-mode.active {
+    border-top: 3px solid #0B5FFF;
+    color: #333;
+}
+.dashboard-container .btn-view-mode .btn-header {
+    font-size: 16px;
+    font-weight: 500;
+}
+.dashboard-container .btn-view-mode .btn-body {
+    font-size: 48px;
+    font-weight: 500;
+}

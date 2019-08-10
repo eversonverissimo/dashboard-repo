@@ -12,6 +12,8 @@ export const STATS_REPO_QUERY = gql`
                         createdAt
                         closedAt
                         mergedAt
+                        merged
+                        closed
                         commits(first:100) {
                             edges {
                                 node {
@@ -32,6 +34,7 @@ export const STATS_REPO_QUERY = gql`
                         url
                         createdAt
                         closedAt
+                        closed
                     }
                 }
             }

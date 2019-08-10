@@ -1,17 +1,37 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
+const CustomTooltip = ({ active, payload, label }) => {
+
+    if (active) {
+      return (
+        <div className="tooltip-info" style={{padding: '20px 10px'}}>
+            <div>
+                <div style={{width:120, display: 'inline-block'}}>Average Time</div>
+                <div style={{display: 'inline-block'}}>{payload[0].payload.time}h</div>
+            </div>
+            <div>
+                <div style={{width:120, display: 'inline-block'}}>Pull Requests</div>
+                <div style={{display: 'inline-block'}}>{payload[0].payload.count}</div>
+            </div>
+        </div>
+      );
+    }
+  
+    return null;
+};
+
 const AvgMergeTimeByPullRequestSize = ({smallPR, mediumPR, largePR}) => {
 
     const data = [
         {
-          name: 'Small', time: smallPR.avgMergeTime, count: smallPR.count,
+          name: 'Small', time: Math.round(smallPR.avgMergeTime), count: smallPR.count,
         },
         {
-          name: 'Medium', time: mediumPR.avgMergeTime, mediumPR: smallPR.count,
+          name: 'Medium', time: Math.round(mediumPR.avgMergeTime), count: mediumPR.count,
         },
         {
-          name: 'Large', time: largePR.avgMergeTime, largePR: smallPR.count,
+          name: 'Large', time: Math.round(largePR.avgMergeTime), count: largePR.count,
         },
     ];
     
@@ -22,10 +42,10 @@ const AvgMergeTimeByPullRequestSize = ({smallPR, mediumPR, largePR}) => {
             </div>
             <div className="dashboard-item-body">
                 <BarChart width={500} height={300} data={data} style={{margin: '0 auto'}}>
-                    <CartesianGrid strokeDasharray="3 3" />
+                    <CartesianGrid vertical={false} />
                     <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
+                    <YAxis unit="h" />
+                    <Tooltip content={<CustomTooltip />} />
                     <Bar dataKey="time" fill="#4B9BFF" />
                 </BarChart>
             </div>
