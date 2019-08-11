@@ -1,65 +1,65 @@
 /* Dashboard Styles */
 
 .dashboard-wrapper {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .dashboard-wrapper .left-rectangle {
-    background-color: #30313F;
-    box-shadow: 1px 0 4px 0 rgba(39,40,51,0.1);
-    float: left;
-    height: 100vh;
-    width: 80px;
-    position: fixed;
+  background-color: #30313F;
+  box-shadow: 1px 0 4px 0 rgba(39,40,51,0.1);
+  float: left;
+  height: 100vh;
+  width: 80px;
+  position: fixed;
 }
 .dashboard-wrapper .shape {
-    background-color: #1865FB;
-    border-radius: 50%;
-    height: 32px;
-    width: 32px;
-    position: absolute;
-    left: 24px;
-    top: 30px;
+  background-color: #1865FB;
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  left: 24px;
+  top: 30px;
 }
 .dashboard-wrapper .dashboard-logo {
-    height: 18px;
-    width: 18px;
-    margin: 7px auto;
-    display: block;
+  height: 18px;
+  width: 18px;
+  margin: 7px auto;
+  display: block;
 }
 
 .dashboard-wrapper .main-wrapper {
-    float: left;
-    width: calc(100% - 80px);
-    margin-bottom: 50px;
-    margin-left: 80px;
+  float: left;
+  width: calc(100% - 80px);
+  margin-bottom: 50px;
+  margin-left: 80px;
 }
 
 .dashboard-wrapper .dashboard-header {
-    background-color: #FFFFFF;
-    box-shadow: 1px 1px 2px 0 rgba(39,40,51,0.08);
-    height: 85px;
-    margin-bottom: 25px;
-    width: 100%;
+  background-color: #FFFFFF;
+  box-shadow: 1px 1px 2px 0 rgba(39,40,51,0.08);
+  height: 85px;
+  margin-bottom: 25px;
+  width: 100%;
 }
 
 .dashboard-wrapper .main-name {
-    height: 28px;
-    color: #272833;
-    font-family: Helvetica;
-    font-size: 24px;
-    line-height: 32px;
-    width: 60%;
-    margin-top: 15px;
-    margin-left: 24px
+  height: 28px;
+  color: #272833;
+  font-family: Helvetica;
+  font-size: 24px;
+  line-height: 32px;
+  width: 60%;
+  margin-top: 15px;
+  margin-left: 24px
 }
 
 .dashboard-wrapper .repo-name {
-    height: 20px;
-    width: 60%;
-    color: #A7A9BC;
-    font-family: Helvetica;
-    font-size: 14px;
-    line-height: 20px;
-    margin-left: 24px
+  height: 20px;
+  width: 60%;
+  color: #A7A9BC;
+  font-family: Helvetica;
+  font-size: 14px;
+  line-height: 20px;
+  margin-left: 24px
 }
