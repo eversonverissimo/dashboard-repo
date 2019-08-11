@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const CustomTooltip = ({ active, payload, label }) => {
 
@@ -40,14 +40,16 @@ const AvgMergeTimeByPullRequestSize = ({smallPR, mediumPR, largePR}) => {
             <div className="dashboard-item-header">
                 <h4 className="dashboard-title">Average Merge Time by Pull Request Size</h4>
             </div>
-            <div className="dashboard-item-body">
-                <BarChart width={500} height={300} data={data} style={{margin: '0 auto'}}>
-                    <CartesianGrid vertical={false} />
-                    <XAxis dataKey="name" />
-                    <YAxis unit="h" />
-                    <Tooltip content={<CustomTooltip />} />
-                    <Bar dataKey="time" fill="#4B9BFF" />
-                </BarChart>
+            <div className="dashboard-item-body" style={{padding: '0 40px'}}>
+                <ResponsiveContainer width="100%" height={400} >
+                    <BarChart data={data} >
+                        <CartesianGrid vertical={false} />
+                        <XAxis dataKey="name" />
+                        <YAxis unit="h" />
+                        <Tooltip content={<CustomTooltip />} />
+                        <Bar dataKey="time" fill="#4B9BFF" />
+                    </BarChart>
+                </ResponsiveContainer>
             </div>
         </div>
     );

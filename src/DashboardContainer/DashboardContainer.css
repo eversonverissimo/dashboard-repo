@@ -1,37 +1,40 @@
 /* Dashboard Container Styles */
 
 .dashboard-container .dashboard-item {
-    background: white;
-    border-radius: 5px;
-    box-shadow: 2px 2px 1px #ECECEC;
     float: left;
     margin-bottom: 20px;
     padding: 5px 0;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    box-shadow: 1px 2px 3px 0 rgba(39,40,51,0.1);
 }
 
 .dashboard-item .dashboard-item-header {
-    border-bottom: 1px #ECECEC solid;
+    border-bottom: 1px #E7E7ED solid;
     margin-bottom: 15px;
-    padding: 10px 10px 15px;
+    padding: 12px 24px 15px;
 }
 
 .dashboard-item .dashboard-title {
-    color: #333;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 500;
     margin: 0;
+    color: #272833;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
 }
 
 .dashboard-item .large-text {
-    font-size: 60px;
     font-weight: 500;
+    color: #000000;
+    font-size: 64px;
+    line-height: 77px;
     text-align: center;
-    line-height: 1;
 }
 
 .dashboard-container .loading {
-    text-align: center;
     padding: 40px;
+    text-align: center;
 }
 .dashboard-container .loading img {
     height: 50px;
@@ -46,8 +49,8 @@
 }
 
 .dashboard-container .tooltip-info .tooltip-header {
-    padding: 10px 20px;
     border-bottom: 1px solid #CCC;
+    padding: 10px 20px;
 }
 .dashboard-container .tooltip-info .tooltip-body {
     padding: 10px 20px;
@@ -55,21 +58,38 @@
 
 .dashboard-container .btn-view-mode {
     background: white;
+    border: 0;
     border-top: 3px solid white;
     color: #AAA;
-    border: 0;
-    padding: 20px 30px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    padding: 20px 15px;
+    text-align: left;
+    width: 133px;
 }
-.dashboard-container .btn-view-mode:focus { outline: none }
+.dashboard-container .btn-view-mode:focus { outline: none; }
+.dashboard-container .btn-view-mode:hover { background-color: #F3F3F3; border-top: 3px solid #0B5FFF; }
 .dashboard-container .btn-view-mode.active {
     border-top: 3px solid #0B5FFF;
     color: #333;
 }
 .dashboard-container .btn-view-mode .btn-header {
-    font-size: 16px;
     font-weight: 500;
+    height: 19px;
+    font-size: 16px;
+    line-height: 19px;
 }
 .dashboard-container .btn-view-mode .btn-body {
-    font-size: 48px;
     font-weight: 500;
+    height: 58px;
+    width: 54px;
+    font-size: 48px;
+    line-height: 58px;
+}
+
+/* Small screens */
+@media (min-width: 769px) and (max-width: 1024px), (max-width: 550px) {
+    .dashboard-item .large-text {
+        font-size: 48px;
+    }
 }

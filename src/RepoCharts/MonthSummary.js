@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const CustomTooltip = ({ active, payload, currentView }) => {
 
@@ -49,8 +49,9 @@ const MonthSummary = (props) => {
             <div className="dashboard-item-header">
                 <h4 className="dashboard-title">Month Summary</h4>
             </div>
-            <div className="dashboard-item-body" style={{marginTop: -17, marginLeft: 20}}>
+            <div className="dashboard-item-body" style={{marginTop: -15}}>
                 <button className={"btn-view-mode " + (currentView === 'PR' ? 'active' : '')}
+                    style={{marginLeft: 20}}
                     onClick={()=>setCurrentView('PR')}>
                     <div className="btn-header">Pull Requests</div>
                     <div className="btn-body">{countPR}</div>
@@ -60,16 +61,20 @@ const MonthSummary = (props) => {
                     <div className="btn-header">Issues</div>
                     <div className="btn-body">{countIssues}</div>
                 </button>
-                <LineChart width={1200} height={400} style={{margin: '0 auto'}}>
-                    <CartesianGrid />
-                    <XAxis dataKey="day" interval={currentView === 'PR' ? prXAxisInterval : issuesXAxisInterval} allowDuplicatedCategory={false} />
-                    <YAxis dataKey="value" />
-                    <Tooltip content={<CustomTooltip currentView={currentView} />} />
-                    <Legend iconType="circle" iconSize={7}/>
-                    {(currentView === 'PR' ? seriesPR : seriesIssues).map(s => (
-                        <Line dataKey="value" data={s.data} name={s.name} stroke={s.stroke} key={s.name} dot={false}/>
-                    ))}
-                </LineChart>
+                <div style={{paddingRight: 40}}>
+                    <ResponsiveContainer width="100%" height={400}>
+                        <LineChart style={{margin: '0 auto'}}>
+                            <CartesianGrid />
+                            <XAxis dataKey="day" interval={currentView === 'PR' ? prXAxisInterval : issuesXAxisInterval} allowDuplicatedCategory={false} />
+                            <YAxis dataKey="value" />
+                            <Tooltip content={<CustomTooltip currentView={currentView} />} />
+                            <Legend iconType="circle" iconSize={7}/>
+                            {(currentView === 'PR' ? seriesPR : seriesIssues).map(s => (
+                                <Line dataKey="value" data={s.data} name={s.name} stroke={s.stroke} key={s.name} dot={false}/>
+                            ))}
+                        </LineChart>
+                    </ResponsiveContainer>
+                </div>
             </div>
         </div>
     );

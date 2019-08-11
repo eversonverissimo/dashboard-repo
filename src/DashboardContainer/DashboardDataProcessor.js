@@ -20,8 +20,8 @@ export class DashboardDataProcessor {
         var minutes = Math.floor(diffSecs/60)%60;
         var seconds = Math.floor(diffSecs%60);
 
-        return `${(days > 0 && days + 'days ') || ''} ${(hours > 0 && hours + 'h ') || ''} 
-            ${(minutes > 0 && minutes + 'm ') || ''} ${(seconds > 0 && seconds + 's ') || ''}`;
+        return `${(days > 0 && days + 'days ') || ''}
+            ${(hours > 0 && hours + 'h') || ''}${(minutes > 0 && minutes + 'm ') || ''}`;
     }
 
     /* Get hours given time in seconds */

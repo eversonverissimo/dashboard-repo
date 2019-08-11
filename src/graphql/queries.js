@@ -2,9 +2,9 @@
 import gql from "graphql-tag";
 
 export const STATS_REPO_QUERY = gql`
-    query GetAvgPRMergeTime($name:String! $repo:String! $prCursor:String $issueCursor:String) {
+    query GetAvgPRMergeTime($name:String! $repo:String!) {
         repository(owner:$name, name:$repo) {
-            pullRequests(first:100, after:$prCursor) {
+            pullRequests(first:100) {
                 edges {
                     cursor
                     node {
@@ -28,7 +28,7 @@ export const STATS_REPO_QUERY = gql`
                     }
                 }
             }
-            issues(first: 100, states: CLOSED, after:$issueCursor){
+            issues(first: 100, states: CLOSED){
                 edges {
                     cursor
                     node {
