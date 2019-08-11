@@ -22,8 +22,8 @@ const client = new ApolloClient({ link: authLink.concat(httpLink), cache });
 
 const DashboardApp = () => {
 
-  const [mainName, setMainName] = useState("eversonverissimo");
-  const [repoName, setRepoName] = useState("empty-repo");
+  const [mainName, setMainName] = useState("Liferay");
+  const [repoName, setRepoName] = useState("liferay-portal");
 
   return (
     <ApolloProvider client={client}>
