@@ -14,16 +14,17 @@ const DashboardContainer = (props) => {
         <div className="dashboard-container">
             {!!props.mainName && !!props.repoName &&
                 <Query query={STATS_REPO_QUERY} variables={{name: props.mainName, repo: props.repoName}}>
-                    {({ loading, error, data }) => {
+                    {({ loading, error, data, fetchMore }) => {
                         if (loading){
                             return <Loading />;
                         }
                         if (error || !data.repository){
+                            console.log("Error", error);
                             return <Error />;
                         }
 
-                        var issueInfo = processor.getIssueInfo(data.repository);
-                        var mergeInfo = processor.getPullRequestInfo(data.repository);
+                        var issueInfo = processor.getIssueInfo(data.repository.issues, fetchMore);
+                        var mergeInfo = processor.getPullRequestInfo(data.repository.pullRequests, fetchMore);
                         return (
                             <div>
                                 <div className="row-container">

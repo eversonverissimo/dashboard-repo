@@ -6,7 +6,7 @@ const CustomTooltip = ({ active, payload, currentView }) => {
   if (active && payload) {
     return (
       <div className="tooltip-info">
-          <div className="tooltip-header">{currentView === 'PR' ? 'Pull Requests' : 'Issues'}</div>
+          <div className="tooltip-header">{currentView === 'PR' ? 'Pull Requests' : 'Issues'} at {payload[0].payload.day}</div>
           <div className="tooltip-body">
              {payload.map(p => (
                 <div key={p.name}>
@@ -31,12 +31,14 @@ const MonthSummary = (props) => {
         
     const [currentView, setCurrentView] = useState("PR");
 
+    const prXAxisInterval = Math.round(Object.keys(prOpenedPerDay).length / 5);
     const seriesPR = [
         { name: 'Opened', stroke: '#B20BFF', data: prOpenedPerDay },
         { name: 'Merged', stroke: '#23CA11', data: prMergedPerDay },
         { name: 'Closed', stroke: '#FF3A00', data: prClosedPerDay }
     ];
 
+    const issuesXAxisInterval = Math.round(Object.keys(issuesOpenedPerDay).length / 5);
     const seriesIssues = [
         { name: 'Opened', stroke: '#23CA11', data: issuesOpenedPerDay },
         { name: 'Closed', stroke: '#FF3A00', data: issuesClosedPerDay }
@@ -60,7 +62,7 @@ const MonthSummary = (props) => {
                 </button>
                 <LineChart width={1200} height={400} style={{margin: '0 auto'}}>
                     <CartesianGrid />
-                    <XAxis dataKey="day" interval={10} allowDuplicatedCategory={false} />
+                    <XAxis dataKey="day" interval={currentView === 'PR' ? prXAxisInterval : issuesXAxisInterval} allowDuplicatedCategory={false} />
                     <YAxis dataKey="value" />
                     <Tooltip content={<CustomTooltip currentView={currentView} />} />
                     <Legend iconType="circle" iconSize={7}/>
